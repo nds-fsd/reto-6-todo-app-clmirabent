@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import styles from './todo.module.css'
+
 const Todo = ({ item, onSave, onDelete }) => {
 
     const [singleTodo, setSingleTodo] = useState(item)
     const [isEditMode, setIsEditMode] = useState(false)
 
     const updateTodoText = (text) => {
-
         setSingleTodo({ ...singleTodo, text })
     }
 
@@ -31,10 +31,13 @@ const Todo = ({ item, onSave, onDelete }) => {
                         : (<span >{singleTodo.text}</span>)
                 }
             </div>
-            <input type="checkbox" className={styles.check} checked={singleTodo.done} onChange={() => toggleTask(singleTodo.id)} />
+            <input type="checkbox" className={styles.check} checked={singleTodo.done} onChange={(e) => toggleTask(e)} />
             <div className={styles.todo_actions}>
-                {isEditMode === false && <button className={styles.button} onClick={() => setIsEditMode(true)}> Edit</button>}
-                <button className={styles.button} onClick={() => onSaveHandler()} > Save </button>
+                {
+                    !isEditMode
+                        ? <button className={styles.button} onClick={() => setIsEditMode(true)}> Edit</button>
+                        : <button className={styles.button} onClick={() => onSaveHandler()} > Save </button>
+                }
                 <button className={styles.button} onClick={() => onDelete(item)}>Delete</button>
             </div>
 

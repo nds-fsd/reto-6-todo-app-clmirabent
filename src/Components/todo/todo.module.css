@@ -25,14 +25,8 @@
 .edit_text_container {
     background: transparent;
     color: #D9D9D9;
-    border-radius: 16px;
-    height: 40px;
-    font-size: 20px;
     font-weight: 700;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    padding: 12px;
+    font-size: 20px;
     flex: auto;
 }
 

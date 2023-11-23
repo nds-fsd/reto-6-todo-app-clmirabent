@@ -13,12 +13,15 @@
 .input {
     background: transparent;
     padding: 10px;
-    color: rgb(161, 160, 160);
-    font-size: 1rem;
+    color: white;
+    font-size: 20px;
+    flex: auto;
 }
 
 .input::placeholder {
-    color: rgb(138, 138, 138);
+    color: white;
+    font-size: 20px;
+
 }
 
 

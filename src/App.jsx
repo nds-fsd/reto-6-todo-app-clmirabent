@@ -32,10 +32,23 @@ function App() {
       var updatedTodo = await response.json()
       const updatedTodos = todos.filter(e => e.id !== todoId)
       updatedTodos.push(updatedTodo)
-      setTodos(updatedTodos)
+      setTodos(updatedTodos.sort(compareTodos))
     }
     //aquí se actualiza la informacion que se recibe para mostrar
   };
+
+  // -1 if todo 1 go first that todo 2, 0 if they are equal, otherwise 1
+  const compareTodos = (todo_1, todo_2) => {
+    if (todo_1.done && !todo_2.done)
+      return 1
+    if (todo_2.done && !todo_1.done)
+      return -1
+    if (todo_1.fecha > todo_2.fecha)
+      return 1
+    if (todo_2.fecha > todo_1.fecha)
+      return -1
+    return 0
+  }
 
   const removeById = async (todoId) => {
     var response = await TodoService.removeById(todoId) //aquí se pide la info a la API
