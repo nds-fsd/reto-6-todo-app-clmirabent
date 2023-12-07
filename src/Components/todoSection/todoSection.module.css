@@ -1,0 +1,11 @@
+.todos_section {
+    display: flex;
+    margin-top: 2rem;
+    color: rgb(161, 160, 160);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    flex-direction: column;
+    gap: 12px;
+
+}
